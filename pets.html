@@ -1,22 +1,8 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <!-- ajuste de caracteres -->
-    <meta charset="UTF-8">
-    <!-- mexe com escala e compatibilidade de navegadores -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- titulo da pagina -->
-    <title>Pet Shop</title>
-</head>
-<body>
-    <!--  -->
-    <header>
-        <!-- Declaração do tipo de documento -->
-        <!DOCTYPE html>
         <!-- Início do documento HTML -->
-        <html lang="en">
+<html lang="pt-br">
         <!-- Cabeçalho do documento -->
-        <head>
+    <head>
             <!-- Especifica a codificação de caracteres para o documento HTML -->
             <meta charset="UTF-8">
             <!-- Define a viewport para tornar o site responsivo -->
@@ -42,15 +28,18 @@
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat repellendus fugit cumque. Nesciunt facere, numquam, sed illum nam soluta architecto aliquam vero rerum, repudiandae inventore velit nostrum. Doloremque, at deleniti.
                 </p>
             </section>
-            <form  method="post">
-                <label for="nome">Seu Nome:</label>
-                <input type="text" name="nomed" id="nomed"><br><br>
-                <label for="email">Seu e-mail:</label>
+            <form  method="post"> <!-- criando formulario -->
+                <h2>Cadastro de Clientes e Pets</h2>
+                <label for="nome">CPF do cliente:</label>
+                <input type="number" name="cpf" id="cpf" required><br><br>
+                <label for="nome">Nome completo do cliente:</label>
+                <input type="text" name="nomed" id="nomed" required><br><br>
+                <label for="email">E-mail do cliente:</label>
                 <input type="email" name="email" id="email"><br><br>
-                <label for="end">Seu Endereço:</label>
+                <label for="end">Endereço do cliente:</label>
                 <input type="text" name="end" id="end"><br><br>
                 <label for="nomep">Nome do pet:</label>
-                <input type="text" name="nomep" id="nomep"><br><br>
+                <input type="text" name="nomep" id="nomep" required><br><br>
                 <label for="tipoPet">Qual pet você tem?</label><br>
                 <input type="checkbox" id="gato" name="tipoPet" value="Gato">
                 <label for="gato">Gato</label><br>
@@ -74,9 +63,5 @@
             <!-- Parágrafo com informações de direitos autorais -->
             <p>&copy; 2025 Pet Shop. Todos os direitos reservados.</p>
             </footer>
-        </body>
-        </html>
-    </header>
-    
-</body>
+ </body>
 </html>
