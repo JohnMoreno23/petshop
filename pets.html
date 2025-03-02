@@ -28,10 +28,10 @@
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat repellendus fugit cumque. Nesciunt facere, numquam, sed illum nam soluta architecto aliquam vero rerum, repudiandae inventore velit nostrum. Doloremque, at deleniti.
                 </p>
             </section>
-            <form  method="post"> <!-- criando formulario -->
+            <form  method="post" id="petForm"> <!-- criando formulario -->
                 <h2>Cadastro de Clientes e Pets</h2>
                 <label for="nome">CPF do cliente:</label>
-                <input type="number" name="cpf" id="cpf" required><br><br>
+                <input type="text" name="cpf" id="cpf" required><br><br>
                 <label for="nome">Nome completo do cliente:</label>
                 <input type="text" name="nomed" id="nomed" required><br><br>
                 <label for="email">E-mail do cliente:</label>
@@ -65,5 +65,25 @@
             <!-- Parágrafo com informações de direitos autorais -->
             <p>&copy; 2025 Pet Shop. Todos os direitos reservados.</p>
             </footer>
+            <script>
+                document.getElementById('cpf').addEventListener('input', function (e) {
+                    let value = e.target.value.replace(/\D/g, '');
+                    if (value.length > 11) {
+                        value = value.slice(0, 11);
+                    }
+                    value = value.replace(/(\d{3})(\d)/, '$1.$2');
+                    value = value.replace(/(\d{3})(\d)/, '$1.$2');
+                    value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+                    e.target.value = value;
+                });
+
+                document.getElementById('petForm').addEventListener('submit', function (e) {
+                    const cpf = document.getElementById('cpf').value.replace(/\D/g, '');
+                    if (cpf.length < 11 || cpf.length > 14) {
+                        alert('O CPF deve ter entre 11 e 14 caracteres.');
+                        e.preventDefault();
+                    }
+                });
+            </script>
  </body>
 </html>
