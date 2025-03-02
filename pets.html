@@ -38,17 +38,24 @@
                 <input type="email" name="email" id="email"><br><br>
                 <label for="end">Endereço do cliente:</label>
                 <input type="text" name="end" id="end"><br><br>
+                
+                <label for="numPets">Quantos pets o cliente possui?</label>
+                <input type="number" name="numPets" id="numPets" min="1" max="10" required><br><br>
+                
+                <div id="petOptions" style="display: none;">
+                    <label for="tipoPet">Qual pet você tem?</label><br>
+                    <input type="checkbox" id="gato" name="tipoPet" value="Gato">
+                    <label for="gato">Gato</label><br>
+                    <input type="checkbox" id="cachorro" name="tipoPet" value="Cachorro">
+                    <label for="cachorro">Cachorro</label><br>
+                    <input type="checkbox" id="coelho" name="tipoPet" value="Coelho">
+                    <label for="coelho">Coelho</label><br><br>
+                </div>
+                
                 <label for="nomep">Nome do pet:</label>
                 <input type="text" name="nomep" id="nomep" required><br><br>
                 <label for="nomep">Data de nasc. do pet:</label>
                 <input type="date" name="nasc" id="nasc" required><br><br>
-                <label for="tipoPet">Qual pet você tem?</label><br>
-                <input type="checkbox" id="gato" name="tipoPet" value="Gato">
-                <label for="gato">Gato</label><br>
-                <input type="checkbox" id="cachorro" name="tipoPet" value="Cachorro">
-                <label for="cachorro">Cachorro</label><br>
-                <input type="checkbox" id="coelho" name="tipoPet" value="Coelho">
-                <label for="coelho">Coelho</label><br><br>
                 <label for="especie">Espécie:</label>
                 <input type="text" name="especie" id="especie"><br><br>
                 <label for="raca">Raça:</label>
@@ -82,6 +89,16 @@
                     if (cpf.length < 11 || cpf.length > 14) {
                         alert('O CPF deve ter entre 11 e 14 caracteres.');
                         e.preventDefault();
+                    }
+                });
+
+                document.getElementById('numPets').addEventListener('input', function (e) {
+                    const numPets = e.target.value;
+                    const petOptions = document.getElementById('petOptions');
+                    if (numPets > 0 && numPets <= 10) {
+                        petOptions.style.display = 'block';
+                    } else {
+                        petOptions.style.display = 'none';
                     }
                 });
             </script>
