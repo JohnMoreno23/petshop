@@ -1,106 +1,131 @@
 <!DOCTYPE html>
-        <!-- Início do documento HTML -->
 <html lang="pt-br">
-        <!-- Cabeçalho do documento -->
-    <head>
-            <!-- Especifica a codificação de caracteres para o documento HTML -->
-            <meta charset="UTF-8">
-            <!-- Define a viewport para tornar o site responsivo -->
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <!-- Define o título do documento -->
-            <title>Pet Shop</title>
-        </head>
-        <!-- Corpo do documento -->
-        <body>
-            <!-- Cabeçalho da página -->
-            <header>
-            <!-- Título principal da página -->
-            <h1>Bem vindos ao melhor Pet Shop da região</h1>
-            </header>
-            <!-- Conteúdo principal do documento -->
-            <main>
-            <!-- Seção dentro do conteúdo principal -->
-            <section>
-                <!-- Subtítulo da seção -->
-                <h2>Nossos Pets</h2>
-                <!-- Parágrafo fornecendo informações sobre a seção -->
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt quidem provident laudantium placeat libero, ratione eius officiis nostrum pariatur alias voluptatum delectus quis illo ex, natus reprehenderit aperiam dolore labore?.
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat repellendus fugit cumque. Nesciunt facere, numquam, sed illum nam soluta architecto aliquam vero rerum, repudiandae inventore velit nostrum. Doloremque, at deleniti.
-                </p>
-            </section>
-            <form  method="post" id="petForm"> <!-- criando formulario -->
-                <h2>Cadastro de Clientes e Pets</h2>
-                <label for="nome">CPF do cliente:</label>
-                <input type="text" name="cpf" id="cpf" required><br><br>
-                <label for="nome">Nome completo do cliente:</label>
-                <input type="text" name="nomed" id="nomed" required><br><br>
-                <label for="email">E-mail do cliente:</label>
-                <input type="email" name="email" id="email"><br><br>
-                <label for="end">Endereço do cliente:</label>
-                <input type="text" name="end" id="end"><br><br>
-                
-                <label for="numPets">Quantos pets o cliente possui?</label>
-                <input type="number" name="numPets" id="numPets" min="1" max="10" required><br><br>
-                
-                <div id="petOptions" style="display: none;">
-                    <label for="tipoPet">Qual pet você tem?</label><br>
-                    <input type="checkbox" id="gato" name="tipoPet" value="Gato">
-                    <label for="gato">Gato</label><br>
-                    <input type="checkbox" id="cachorro" name="tipoPet" value="Cachorro">
-                    <label for="cachorro">Cachorro</label><br>
-                    <input type="checkbox" id="coelho" name="tipoPet" value="Coelho">
-                    <label for="coelho">Coelho</label><br><br>
-                </div>
-                
-                <label for="nomep">Nome do pet:</label>
-                <input type="text" name="nomep" id="nomep" required><br><br>
-                <label for="nomep">Data de nasc. do pet:</label>
-                <input type="date" name="nasc" id="nasc" required><br><br>
-                <label for="especie">Espécie:</label>
-                <input type="text" name="especie" id="especie"><br><br>
-                <label for="raca">Raça:</label>
-                <input type="text" name="raca" id="raca"><br><br>
-                <label for="cor">cor:</label>
-                <input type="text" name="cor" id="cor"><br><br>
-                <label for="cor">Temperamento:</label>
-                <input type="text" name="temp" id="temp"><br><br>
-                <button type="submit">Cadastrar</button>
-            </form>
-            </main>
-            <!-- Rodapé do documento -->
-            <footer>
-            <!-- Parágrafo com informações de direitos autorais -->
-            <p>&copy; 2025 Pet Shop. Todos os direitos reservados.</p>
-            </footer>
-            <script>
-                document.getElementById('cpf').addEventListener('input', function (e) {
-                    let value = e.target.value.replace(/\D/g, '');
-                    if (value.length > 11) {
-                        value = value.slice(0, 11);
-                    }
-                    value = value.replace(/(\d{3})(\d)/, '$1.$2');
-                    value = value.replace(/(\d{3})(\d)/, '$1.$2');
-                    value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
-                    e.target.value = value;
-                });
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Shop</title>
+</head>
+<body>
+    <header>
+        <h1>Bem vindos ao melhor Pet Shop da região</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Nossos Pets</h2>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt quidem provident laudantium placeat libero, ratione eius officiis nostrum pariatur alias voluptatum delectus quis illo ex, natus reprehenderit aperiam dolore labore?.
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat repellendus fugit cumque. Nesciunt facere, numquam, sed illum nam soluta architecto aliquam vero rerum, repudiandae inventore velit nostrum. Doloremque, at deleniti.
+            </p>
+        </section>
+        <form method="post" id="petForm"> <!-- criando formulario -->
+            <h2>Cadastro de Clientes e Pets</h2>
+            <label for="nome">CPF do cliente:</label>
+            <input type="text" name="cpf" id="cpf" required><br><br>
+            <label for="nome">Nome completo do cliente:</label>
+            <input type="text" name="nomed" id="nomed" required><br><br>
+            <label for="email">E-mail do cliente:</label>
+            <input type="email" name="email" id="email"><br><br>
+            <label for="end">Endereço do cliente:</label>
+            <input type="text" name="end" id="end"><br><br>
+            
+            <label for="numPets">Quantos pets você tem?</label>
+            <input type="number" name="numPets" id="numPets" min="1" max="10" required><br><br>
+            
+            <div id="petOptions" style="display: none;">
+                <label for="tipoPet">Qual pet você tem?</label><br>
+                <input type="checkbox" id="gato" name="tipoPet" value="Gato">
+                <label for="gato">Gato</label><br>
+                <input type="checkbox" id="cachorro" name="tipoPet" value="Cachorro">
+                <label for="cachorro">Cachorro</label><br>
+                <input type="checkbox" id="coelho" name="tipoPet" value="Coelho">
+                <label for="coelho">Coelho</label><br><br>
+            </div>
+            
+            <div id="petDetails"></div>
+            
+            <button type="submit">Cadastrar</button>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2025 Pet Shop. Todos os direitos reservados.</p>
+    </footer>
+    <script>
+        document.getElementById('cpf').addEventListener('input', function (e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 11) {
+                value = value.slice(0, 11);
+            }
+            value = value.replace(/(\d{3})(\d)/, '$1.$2');
+            value = value.replace(/(\d{3})(\d)/, '$1.$2');
+            value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+            e.target.value = value;
+        });
 
-                document.getElementById('petForm').addEventListener('submit', function (e) {
-                    const cpf = document.getElementById('cpf').value.replace(/\D/g, '');
-                    if (cpf.length < 11 || cpf.length > 14) {
-                        alert('O CPF deve ter entre 11 e 14 caracteres.');
-                        e.preventDefault();
-                    }
-                });
+        document.getElementById('petForm').addEventListener('submit', function (e) {
+            const cpf = document.getElementById('cpf').value.replace(/\D/g, '');
+            if (cpf.length < 11 || cpf.length > 14) {
+                alert('O CPF deve ter entre 11 e 14 caracteres.');
+                e.preventDefault();
+            }
+        });
 
-                document.getElementById('numPets').addEventListener('input', function (e) {
-                    const numPets = e.target.value;
-                    const petOptions = document.getElementById('petOptions');
-                    if (numPets > 0 && numPets <= 10) {
-                        petOptions.style.display = 'block';
-                    } else {
-                        petOptions.style.display = 'none';
+        document.getElementById('numPets').addEventListener('input', function (e) {
+            const numPets = e.target.value;
+            const petOptions = document.getElementById('petOptions');
+            const petDetails = document.getElementById('petDetails');
+            petDetails.innerHTML = '';
+            if (numPets > 0 && numPets <= 10) {
+                petOptions.style.display = 'block';
+                for (let i = 0; i < numPets; i++) {
+                    const petDetail = document.createElement('div');
+                    petDetail.innerHTML = `
+                        <h3>Pet ${i + 1}</h3>
+                        <label for="nomep${i}">Nome do pet:</label>
+                        <input type="text" name="nomep${i}" id="nomep${i}" required><br><br>
+                        <label for="nasc${i}">Data de nasc. do pet:</label>
+                        <input type="date" name="nasc${i}" id="nasc${i}" required><br><br>
+                        <div id="extraFields${i}"></div>
+                    `;
+                    petDetails.appendChild(petDetail);
+                }
+            } else {
+                petOptions.style.display = 'none';
+            }
+        });
+
+        document.querySelectorAll('input[name="tipoPet"]').forEach(function (checkbox) {
+            checkbox.addEventListener('change', function () {
+                const petDetails = document.getElementById('petDetails');
+                petDetails.querySelectorAll('div[id^="extraFields"]').forEach(function (extraFields, index) {
+                    extraFields.innerHTML = '';
+                    if (checkbox.checked) {
+                        if (checkbox.value === 'Cachorro') {
+                            extraFields.innerHTML = `
+                                <label for="raca${index}">Raça:</label>
+                                <input type="text" name="raca${index}" id="raca${index}"><br><br>
+                                <label for="porte${index}">Porte:</label>
+                                <input type="text" name="porte${index}" id="porte${index}"><br><br>
+                                <label for="temp${index}">Temperamento:</label>
+                                <input type="text" name="temp${index}" id="temp${index}"><br><br>
+                            `;
+                        } else if (checkbox.value === 'Gato') {
+                            extraFields.innerHTML = `
+                                <label for="tipo${index}">Tipo:</label>
+                                <input type="text" name="tipo${index}" id="tipo${index}"><br><br>
+                                <label for="temp${index}">Temperamento:</label>
+                                <input type="text" name="temp${index}" id="temp${index}"><br><br>
+                            `;
+                        } else if (checkbox.value === 'Coelho') {
+                            extraFields.innerHTML = `
+                                <label for="especie${index}">Espécie:</label>
+                                <input type="text" name="especie${index}" id="especie${index}"><br><br>
+                                <label for="cor${index}">Cor:</label>
+                                <input type="text" name="cor${index}" id="cor${index}"><br><br>
+                            `;
+                        }
                     }
                 });
-            </script>
- </body>
+            });
+        });
+    </script>
+</body>
 </html>
