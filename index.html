@@ -30,16 +30,6 @@
             <label for="numPets">Quantos pets o cliente possui?</label>
             <input type="number" name="numPets" id="numPets" min="1" max="10" required><br><br>
             
-            <div id="petOptions" style="display: none;">
-                <label for="tipoPet">Qual pets o cliente possui?</label><br>
-                <input type="checkbox" id="gato" name="tipoPet" value="Gato">
-                <label for="gato">Gato</label><br>
-                <input type="checkbox" id="cachorro" name="tipoPet" value="Cachorro">
-                <label for="cachorro">Cachorro</label><br>
-                <input type="checkbox" id="coelho" name="tipoPet" value="Coelho">
-                <label for="coelho">Coelho</label><br><br>
-            </div>
-            
             <div id="petDetails"></div>
             
             <button type="submit">Cadastrar</button>
@@ -70,61 +60,70 @@
 
         document.getElementById('numPets').addEventListener('input', function (e) {
             const numPets = e.target.value;
-            const petOptions = document.getElementById('petOptions');
             const petDetails = document.getElementById('petDetails');
             petDetails.innerHTML = '';
             if (numPets > 0 && numPets <= 10) {
-                petOptions.style.display = 'block';
                 for (let i = 0; i < numPets; i++) {
                     const petDetail = document.createElement('div');
                     petDetail.innerHTML = `
                         <h3>Pet ${i + 1}</h3>
-                        <label for="nomep${i}">Nome do pet:</label>
-                        <input type="text" name="nomep${i}" id="nomep${i}" required><br><br>
-                        <label for="nasc${i}">Data de nasc. do pet:</label>
-                        <input type="date" name="nasc${i}" id="nasc${i}" required><br><br>
+                        <label for="tipoPet${i}">Qual pet você tem?</label><br>
+                        <input type="radio" id="gato${i}" name="tipoPet${i}" value="Gato">
+                        <label for="gato${i}">Gato</label><br>
+                        <input type="radio" id="cachorro${i}" name="tipoPet${i}" value="Cachorro">
+                        <label for="cachorro${i}">Cachorro</label><br>
+                        <input type="radio" id="coelho${i}" name="tipoPet${i}" value="Coelho">
+                        <label for="coelho${i}">Coelho</label><br><br>
                         <div id="extraFields${i}"></div>
                     `;
                     petDetails.appendChild(petDetail);
-                }
-            } else {
-                petOptions.style.display = 'none';
-            }
-        });
 
-        document.querySelectorAll('input[name="tipoPet"]').forEach(function (checkbox) {
-            checkbox.addEventListener('change', function () {
-                const petDetails = document.getElementById('petDetails');
-                petDetails.querySelectorAll('div[id^="extraFields"]').forEach(function (extraFields, index) {
-                    extraFields.innerHTML = '';
-                    if (checkbox.checked) {
-                        if (checkbox.value === 'Cachorro') {
-                            extraFields.innerHTML = `
-                                <label for="raca${index}">Raça:</label>
-                                <input type="text" name="raca${index}" id="raca${index}"><br><br>
-                                <label for="porte${index}">Porte:</label>
-                                <input type="text" name="porte${index}" id="porte${index}"><br><br>
-                                <label for="temp${index}">Temperamento:</label>
-                                <input type="text" name="temp${index}" id="temp${index}"><br><br>
-                            `;
-                        } else if (checkbox.value === 'Gato') {
-                            extraFields.innerHTML = `
-                                <label for="tipo${index}">Tipo:</label>
-                                <input type="text" name="tipo${index}" id="tipo${index}"><br><br>
-                                <label for="temp${index}">Temperamento:</label>
-                                <input type="text" name="temp${index}" id="temp${index}"><br><br>
-                            `;
-                        } else if (checkbox.value === 'Coelho') {
-                            extraFields.innerHTML = `
-                                <label for="especie${index}">Espécie:</label>
-                                <input type="text" name="especie${index}" id="especie${index}"><br><br>
-                                <label for="cor${index}">Cor:</label>
-                                <input type="text" name="cor${index}" id="cor${index}"><br><br>
-                            `;
-                        }
-                    }
-                });
-            });
+                    document.querySelectorAll(`input[name="tipoPet${i}"]`).forEach(function (radio) {
+                        radio.addEventListener('change', function () {
+                            const extraFields = document.getElementById(`extraFields${i}`);
+                            extraFields.innerHTML = '';
+                            if (radio.checked) {
+                                if (radio.value === 'Cachorro') {
+                                    extraFields.innerHTML = `
+                                        <label for="nomep${i}">Nome do pet:</label>
+                                        <input type="text" name="nomep${i}" id="nomep${i}" required><br><br>
+                                        <label for="nasc${i}">Data de nasc. do pet:</label>
+                                        <input type="date" name="nasc${i}" id="nasc${i}" required><br><br>
+                                        <label for="raca${i}">Raça:</label>
+                                        <input type="text" name="raca${i}" id="raca${i}"><br><br>
+                                        <label for="porte${i}">Porte:</label>
+                                        <input type="text" name="porte${i}" id="porte${i}"><br><br>
+                                        <label for="temp${i}">Temperamento:</label>
+                                        <input type="text" name="temp${i}" id="temp${i}"><br><br>
+                                    `;
+                                } else if (radio.value === 'Gato') {
+                                    extraFields.innerHTML = `
+                                        <label for="nomep${i}">Nome do pet:</label>
+                                        <input type="text" name="nomep${i}" id="nomep${i}" required><br><br>
+                                        <label for="nasc${i}">Data de nasc. do pet:</label>
+                                        <input type="date" name="nasc${i}" id="nasc${i}" required><br><br>
+                                        <label for="tipo${i}">Tipo:</label>
+                                        <input type="text" name="tipo${i}" id="tipo${i}"><br><br>
+                                        <label for="temp${i}">Temperamento:</label>
+                                        <input type="text" name="temp${i}" id="temp${i}"><br><br>
+                                    `;
+                                } else if (radio.value === 'Coelho') {
+                                    extraFields.innerHTML = `
+                                        <label for="nomep${i}">Nome do pet:</label>
+                                        <input type="text" name="nomep${i}" id="nomep${i}" required><br><br>
+                                        <label for="nasc${i}">Data de nasc. do pet:</label>
+                                        <input type="date" name="nasc${i}" id="nasc${i}" required><br><br>
+                                        <label for="especie${i}">Espécie:</label>
+                                        <input type="text" name="especie${i}" id="especie${i}"><br><br>
+                                        <label for="cor${i}">Cor:</label>
+                                        <input type="text" name="cor${i}" id="cor${i}"><br><br>
+                                    `;
+                                }
+                            }
+                        });
+                    });
+                }
+            }
         });
     </script>
 </body>
