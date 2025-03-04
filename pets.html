@@ -28,20 +28,30 @@
             <input type="number" name="cpfd" id="cpfd" placeholder="cpf do dono" required class="separar">
             <br><br>
             <h3>Qual pet deseja cadastrar?</h3><br>
-            <!-- <input type="checkbox" name="qlPet" id="qlPet" value="Cachorro">
-            <label for="cachorro">Cachorro</label>
-            <input type="checkbox" name="gato" id="gato" value="gato">
-            <label for="gato">Gato</label>
-            <input type="checkbox" name="coelho" id="coelho" value="coelho">
-            <label for="coelho">Coelho</label> -->
             <select name="opt-principal" id="opt-principal">
                 <option value="cachorro">Cachorro</option>
                 <option value="gato">Gato</option>
                 <option value="coelho">Coelho</option>
-            </select>
+            </select> <br><br>
             <div id="opt1" class="opcao"> <!-- opção do cachorro -->
                 <label for="raca">Raça: </label>
                 <input type="text" name="raca" id="raca" placeholder="raça do cachorro"> <br>
+                <label for="porte">Selecione o Porte: </label>
+                <select name="porte" id="porte">
+                    <option value="peq">Pequeno até 10kg</option>
+                    <option value="med">Médio até 25kg</option>
+                    <option value="gra">Grande até 45kg</option>
+                </select><br>
+                <label for="temp">Temperamento do Cachorro: </label>
+                <select name="temp" id="temp">
+                     
+                    <option value="calmo">Calmo</option>
+                    <option value="Carinhoso">Carinhoso</option>
+                    <option value="brincalhao">Brincalhão</option>
+                    <option value="possessivo">Possessivo</option>
+
+                </select>
+
             </div>
             <div id="opt2" class="opcao"></div> <!-- opção do gato -->
             <div id="opt3" class="opcao"></div> <!-- opção do coelho -->
