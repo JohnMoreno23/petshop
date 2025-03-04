@@ -20,11 +20,33 @@
         </section>
         <form method="post" id="petForm">  <!-- criando formulario -->
             <h2>Cadastro de Pet</h2>
-            <input type="text" name="nome" placeholder="nome do pet" id="nome" required>
-            <input type="date" name="nascPet" id="nascPet" placeholder="Nascimento do pet" required>
-            <br>
+            <label for="nome">Nome/Apelido: </label>
+            <input type="text" name="nome" placeholder="nome do pet" id="nome" required class="separar"><br><br>
+            <label for="nascPet">Data de nascimento do pet: </label>
+            <input type="date" name="nascPet" id="nascPet" placeholder="Nascimento do pet" required class="separar"><br><br>
+            <label for="dono">CPF do dono do pet: </label>
+            <input type="number" name="cpfd" id="cpfd" placeholder="cpf do dono" required class="separar">
+            <br><br>
+            <h3>Qual pet deseja cadastrar?</h3><br>
+            <!-- <input type="checkbox" name="qlPet" id="qlPet" value="Cachorro">
+            <label for="cachorro">Cachorro</label>
+            <input type="checkbox" name="gato" id="gato" value="gato">
+            <label for="gato">Gato</label>
+            <input type="checkbox" name="coelho" id="coelho" value="coelho">
+            <label for="coelho">Coelho</label> -->
+            <select name="opt-principal" id="opt-principal">
+                <option value="cachorro">Cachorro</option>
+                <option value="gato">Gato</option>
+                <option value="coelho">Coelho</option>
+            </select>
+            <div id="opt1" class="opcao"> <!-- opção do cachorro -->
+                <label for="raca">Raça: </label>
+                <input type="text" name="raca" id="raca" placeholder="raça do cachorro"> <br>
+            </div>
+            <div id="opt2" class="opcao"></div> <!-- opção do gato -->
+            <div id="opt3" class="opcao"></div> <!-- opção do coelho -->
 
-            
+            <br><br>
             <button type="submit">Cadastrar</button>
         </form>
 

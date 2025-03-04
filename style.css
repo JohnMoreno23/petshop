@@ -5,6 +5,10 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+body{
+    background-color: rgb(206, 204, 202);
+}
+
 header {
     background-color: rgb(66, 8, 8);
     color: white;
@@ -44,7 +48,8 @@ form {
     border: 1px solid rgb(66, 8, 8);
     padding: 20px;
     border-radius: 10px;
-    width: 40%;
+    width: 60%;
+    text-align: center;
 }
 
 h2 {
@@ -62,4 +67,8 @@ footer {
     background-color: rgb(66, 8, 8);
     color: white;
     padding: 10px;
+}
+
+input.separar {
+    margin: 0 20px;
 }
