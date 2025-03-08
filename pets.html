@@ -12,59 +12,127 @@
     </header>
     <main>
         <section>
-            <div class="nav-bar" >
+            <div class="nav-bar">
                 <a href="index.html">Home</a>
                 <a href="#">Serviços</a>
                 <a href="clientes.html">Cadastrar Clientes</a>
             </div>
         </section>
-        <form method="post" id="petForm">  <!-- criando formulario -->
+        <form method="post" id="petForm"> <!-- criando formulario -->
             <h2>Cadastro de Pet</h2>
             <label for="nome">Nome/Apelido: </label>
             <input type="text" name="nome" placeholder="nome do pet" id="nome" required class="separar"><br><br>
             <label for="nascPet">Data de nascimento do pet: </label>
             <input type="date" name="nascPet" id="nascPet" placeholder="Nascimento do pet" required class="separar"><br><br>
             <label for="dono">CPF do dono do pet: </label>
-            <input type="number" name="cpfd" id="cpfd" placeholder="cpf do dono" required class="separar">
-            <br><br>
-            <h3>Qual pet deseja cadastrar?</h3><br>
-            <select name="opt-principal" id="opt-principal">
-                <option value="cachorro">Cachorro</option>
-                <option value="gato">Gato</option>
-                <option value="coelho">Coelho</option>
-            </select> <br><br>
-            <div id="opt1" class="opcao"> <!-- opção do cachorro -->
-                <label for="raca">Raça: </label>
-                <input type="text" name="raca" id="raca" placeholder="raça do cachorro"> <br>
-                <label for="porte">Selecione o Porte: </label>
-                <select name="porte" id="porte">
-                    <option value="peq">Pequeno até 10kg</option>
-                    <option value="med">Médio até 25kg</option>
-                    <option value="gra">Grande até 45kg</option>
-                </select><br>
-                <label for="temp">Temperamento do Cachorro: </label>
-                <select name="temp" id="temp">
-                     
-                    <option value="calmo">Calmo</option>
-                    <option value="Carinhoso">Carinhoso</option>
-                    <option value="brincalhao">Brincalhão</option>
-                    <option value="possessivo">Possessivo</option>
+            <input type="text" name="cpfd" id="cpfd" placeholder="cpf do dono" required class="separar"><br><br>
 
-                </select>
-
-            </div>
-            <div id="opt2" class="opcao"></div> <!-- opção do gato -->
-            <div id="opt3" class="opcao"></div> <!-- opção do coelho -->
+            <div id="petDetails"></div>
 
             <br><br>
-            <button type="submit">Cadastrar</button>
+            <button type="button" id="addPetButton">Adicionar Pet</button>
+            <button type="submit" id="submitFormButton" style="display: none;">Finalizar Cadastro</button>
         </form>
-
-
-
     </main>
     <footer>
         <p>&copy; 2025 Pet Shop. Todos os direitos reservados.</p>
     </footer>
+    <!-- Incluindo o script JavaScript -->
+    <script>
+        document.getElementById('cpfd').addEventListener('input', function (e) {
+    let value = e.target.value.replace(/\D/g, '');
+    if (value.length > 11) {
+        value = value.slice(0, 11);
+    }
+    value = value.replace(/(\d{3})(\d)/, '$1.$2');
+    value = value.replace(/(\d{3})(\d)/, '$1.$2');
+    value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+    e.target.value = value;
+});
+
+document.getElementById('petForm').addEventListener('submit', function (e) {
+    const cpf = document.getElementById('cpfd').value.replace(/\D/g, '');
+    if (cpf.length < 11 || cpf.length > 14) {
+        alert('O CPF deve ter entre 11 e 14 caracteres.');
+        e.preventDefault();
+    }
+});
+
+document.getElementById('addPetButton').addEventListener('click', function () {
+    const petDetails = document.getElementById('petDetails');
+    const petIndex = petDetails.children.length;
+    const petDetail = document.createElement('div');
+    petDetail.innerHTML = `
+        <h3>Pet ${petIndex + 1}</h3>
+        <label for="tipoPet${petIndex}">Qual pet deseja incluir?</label><br>
+        <select id="tipoPet${petIndex}" name="tipoPet${petIndex}">
+            <option value="">Selecione</option>
+            <option value="Cachorro">Cachorro</option>
+            <option value="Gato">Gato</option>
+            <option value="Coelho">Coelho</option>
+        </select><br><br>
+        <div id="extraFields${petIndex}"></div>
+    `;
+    petDetails.appendChild(petDetail);
+
+    document.getElementById(`tipoPet${petIndex}`).addEventListener('change', function () {
+        const extraFields = document.getElementById(`extraFields${petIndex}`);
+        extraFields.innerHTML = '';
+        if (this.value === 'Cachorro') {
+            extraFields.innerHTML = `
+                <label for="nomep${petIndex}">Nome do pet:</label>
+                <input type="text" name="nomep${petIndex}" id="nomep${petIndex}" required><br><br>
+                <label for="nasc${petIndex}">Data de nasc. do pet:</label>
+                <input type="date" name="nasc${petIndex}" id="nasc${petIndex}" required><br><br>
+                <label for="raca${petIndex}">Raça:</label>
+                <input type="text" name="raca${petIndex}" id="raca${petIndex}"><br><br>
+                <label for="porte${petIndex}">Porte:</label>
+                <input type="text" name="porte${petIndex}" id="porte${petIndex}"><br><br>
+                <label for="temp${petIndex}">Temperamento:</label>
+                <input type="text" name="temp${petIndex}" id="temp${petIndex}"><br><br>
+            `;
+        } else if (this.value === 'Gato') {
+            extraFields.innerHTML = `
+                <label for="nomep${petIndex}">Nome do pet:</label>
+                <input type="text" name="nomep${petIndex}" id="nomep${petIndex}" required><br><br>
+                <label for="nasc${petIndex}">Data de nasc. do pet:</label>
+                <input type="date" name="nasc${petIndex}" id="nasc${petIndex}" required><br><br>
+                <label for="tipo${petIndex}">Tipo:</label>
+                <input type="text" name="tipo${petIndex}" id="tipo${petIndex}"><br><br>
+                <label for="temp${petIndex}">Temperamento:</label>
+                <input type="text" name="temp${petIndex}" id="temp${petIndex}"><br><br>
+            `;
+        } else if (this.value === 'Coelho') {
+            extraFields.innerHTML = `
+                <label for="nomep${petIndex}">Nome do pet:</label>
+                <input type="text" name="nomep${petIndex}" id="nomep${petIndex}" required><br><br>
+                <label for="nasc${petIndex}">Data de nasc. do pet:</label>
+                <input type="date" name="nasc${petIndex}" id="nasc${petIndex}" required><br><br>
+                <label for="especie${petIndex}">Espécie:</label>
+                <input type="text" name="especie${petIndex}" id="especie${petIndex}"><br><br>
+                <label for="cor${petIndex}">Cor:</label>
+                <input type="text" name="cor${petIndex}" id="cor${petIndex}"><br><br>
+            `;
+        }
+    });
+
+    const addPetButton = document.getElementById('addPetButton');
+    const submitFormButton = document.getElementById('submitFormButton');
+    addPetButton.style.display = 'none';
+    submitFormButton.style.display = 'block';
+});
+
+document.getElementById('submitFormButton').addEventListener('click', function () {
+    const addPetButton = document.getElementById('addPetButton');
+    const submitFormButton = document.getElementById('submitFormButton');
+    const morePets = confirm('Você deseja cadastrar mais um pet?');
+    if (morePets) {
+        addPetButton.style.display = 'block';
+        submitFormButton.style.display = 'none';
+    } else {
+        document.getElementById('petForm').submit();
+    }
+});
+    </script>
 </body>
 </html>
