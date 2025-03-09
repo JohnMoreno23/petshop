@@ -9,16 +9,21 @@ body{
     background-color: rgb(206, 204, 202);
 }
 
+/* Edição básica das paginas */
+
 header {
     background-color: rgb(66, 8, 8);
     color: white;
     padding: 10px;
+    box-shadow: 1px 1px 5px black;
 }
 
 h1 {
     text-align: center;
     margin: 20px 0;
 }
+
+/* Navegação dos menus */
 
 .nav-bar {
     display: flex;
@@ -37,6 +42,8 @@ a:hover {
     color: rgb(8, 66, 8);
 }
 
+/* Conteúdo do site */
+
 main {
     display: flex;
     justify-content: center;
@@ -45,13 +52,36 @@ main {
     font-size: 1.2rem;
 }
 
+.high {
+    color: rgb(66, 8, 8);
+    text-shadow: black;
+    font-weight: bold;
+}
+
+.container{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(209, 169, 169);
+    padding: 20px;
+    border-radius: 20px;
+    margin: 20px 0;
+    box-shadow: 1px 1px 5px black;
+}
+
+
 form {
-    border: 1px solid rgb(66, 8, 8);
     padding: 20px;
     border-radius: 10px;
     width: 60%;
     text-align: center;
     margin: 0 auto;
+    background-color: rgb(209, 169, 169);
+    border-radius: 20px;
+    margin: 20px 0;
+    box-shadow: 1px 1px 5px black;
 }
 
 h2 {
@@ -62,6 +92,8 @@ h2 {
 label {
     font-weight: bold;
 }
+
+/* Rodapé */
 
 footer {
     text-align: center;
