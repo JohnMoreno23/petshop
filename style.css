@@ -150,4 +150,8 @@ input.separar {
         display: flex;
         flex-wrap: wrap;
     }
+
+    p{
+        line-height: 1.8;
+    }
 }
