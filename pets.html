@@ -80,10 +80,6 @@ document.getElementById('addPetButton').addEventListener('click', function () {
         extraFields.innerHTML = '';
         if (this.value === 'Cachorro') {
             extraFields.innerHTML = `
-                <label for="nomep${petIndex}">Nome do pet:</label>
-                <input type="text" name="nomep${petIndex}" id="nomep${petIndex}" required><br><br>
-                <label for="nasc${petIndex}">Data de nasc. do pet:</label>
-                <input type="date" name="nasc${petIndex}" id="nasc${petIndex}" required><br><br>
                 <label for="raca${petIndex}">Raça:</label>
                 <input type="text" name="raca${petIndex}" id="raca${petIndex}"><br><br>
                 <label for="porte${petIndex}">Porte:</label>
@@ -93,10 +89,6 @@ document.getElementById('addPetButton').addEventListener('click', function () {
             `;
         } else if (this.value === 'Gato') {
             extraFields.innerHTML = `
-                <label for="nomep${petIndex}">Nome do pet:</label>
-                <input type="text" name="nomep${petIndex}" id="nomep${petIndex}" required><br><br>
-                <label for="nasc${petIndex}">Data de nasc. do pet:</label>
-                <input type="date" name="nasc${petIndex}" id="nasc${petIndex}" required><br><br>
                 <label for="tipo${petIndex}">Tipo:</label>
                 <input type="text" name="tipo${petIndex}" id="tipo${petIndex}"><br><br>
                 <label for="temp${petIndex}">Temperamento:</label>
@@ -104,10 +96,6 @@ document.getElementById('addPetButton').addEventListener('click', function () {
             `;
         } else if (this.value === 'Coelho') {
             extraFields.innerHTML = `
-                <label for="nomep${petIndex}">Nome do pet:</label>
-                <input type="text" name="nomep${petIndex}" id="nomep${petIndex}" required><br><br>
-                <label for="nasc${petIndex}">Data de nasc. do pet:</label>
-                <input type="date" name="nasc${petIndex}" id="nasc${petIndex}" required><br><br>
                 <label for="especie${petIndex}">Espécie:</label>
                 <input type="text" name="especie${petIndex}" id="especie${petIndex}"><br><br>
                 <label for="cor${petIndex}">Cor:</label>
