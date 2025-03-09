@@ -50,6 +50,7 @@ form {
     border-radius: 10px;
     width: 60%;
     text-align: center;
+    margin: 0 auto;
 }
 
 h2 {
@@ -72,3 +73,4 @@ footer {
 input.separar {
     margin: 0 20px;
 }
+
