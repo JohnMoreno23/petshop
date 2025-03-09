@@ -138,6 +138,7 @@ input.separar {
         font-size: .9rem;
         width: 80%;
         justify-content: space-between;
+        margin: 10px 0;
     }
 
     form {
