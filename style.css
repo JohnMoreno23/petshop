@@ -42,6 +42,7 @@ main {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    font-size: 1.2rem;
 }
 
 form {
@@ -74,3 +75,16 @@ input.separar {
     margin: 0 20px;
 }
 
+/* Media queries */
+
+@media screen and (max-width: 768px) {
+    form {
+        width: 90%;
+    }
+
+    main {
+        font-size: .8rem;
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
