@@ -111,18 +111,13 @@ h2 {
     margin-bottom: 40px;
 }
 
-label {
-    font-weight: bold;
-}
-
-/* Rodapé */
-
-footer {
-    text-align: center;
-    margin-top: 20px;
+input[type="submit"] {
     background-color: rgb(66, 8, 8);
     color: white;
     padding: 10px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
 }
 
 label {
@@ -140,6 +135,19 @@ input.separar {
     padding: 10px;
     box-sizing: border-box;
 }
+
+
+/* Rodapé */
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    background-color: rgb(66, 8, 8);
+    color: white;
+    padding: 10px;
+}
+
+
 
 /* Media queries */
 
