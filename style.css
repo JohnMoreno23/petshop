@@ -60,7 +60,7 @@ main {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 .high {
@@ -104,6 +104,11 @@ form {
     border-radius: 20px;
     margin: 20px 0;
     box-shadow: 1px 1px 5px black;
+}
+
+form:hover {
+    transform: scale(1.02);
+    transition: 0.5s;
 }
 
 h2 {
