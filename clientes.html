@@ -31,9 +31,26 @@
             <input type="text" name="endereco" id="endereco" placeholder="endereço do cliente" required class="separar"><br><br>
             <label for="email" id="email">E-mail: </label>
             <input type="email" name="email" id="email" placeholder="e-mail do cliente" required class="separar"><br><br>
-            <button type="submit">Cadastrar Cliente</button>
+            <button type="submit" id="enviar" onclick="perguntar">Cadastrar Cliente</button>
            </form>
     </main>
+
+    <script>
+        document.getElementById('cpf').addEventListener('input', function (e) {
+    let value = e.target.value.replace(/\D/g, '');
+    if (value.length > 11) {
+        value = value.slice(0, 11);
+    }
+    value = value.replace(/(\d{3})(\d)/, '$1.$2');
+    value = value.replace(/(\d{3})(\d)/, '$1.$2');
+    value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+    e.target.value = value;
+});
+
+
+
+
+    </script>
     <footer>
         <p>&copy; 2025 Pet Shop. Todos os direitos reservados.</p>
     </footer>
