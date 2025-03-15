@@ -155,4 +155,12 @@ input.separar {
         line-height: 1.8;
         text-align: justify;
     }
+
+    footer {
+        font-size: .9rem;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+    }
 }
