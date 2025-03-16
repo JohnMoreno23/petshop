@@ -69,6 +69,11 @@ main {
     font-weight: bold;
 }
 
+section p {
+    text-align: justify;
+    line-height: 1.5;
+}
+
 .container{
     width: 80%;
     display: flex;

@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <h1>Sistema de cadastro Pet Shop #Pandas</h1>
+        <h1>Area de cadastro Pet Shop #Pandas</h1>
     </header>
     <main>
         <section>
@@ -20,11 +20,11 @@
         </section>
         <form method="post" id="petForm"> <!-- criando formulario -->
             <h2>Cadastro de Pet</h2>
-            <label for="nome">Nome/Apelido: </label>
+            <label for="nome">Nome/Apelido </label>
             <input type="text" name="nome" placeholder="nome do pet" id="nome" required class="separar"><br><br>
-            <label for="nascPet">Data de nascimento do pet: </label>
+            <label for="nascPet">Data de nascimento do pet </label>
             <input type="date" name="nascPet" id="nascPet" placeholder="Nascimento do pet" required class="separar"><br><br>
-            <label for="dono">Atribuir pet ao CPF: </label>
+            <label for="dono">Atribuir pet ao CPF </label>
             <input type="text" name="cpfd" id="cpfd" placeholder="cpf do dono" required class="separar"><br><br>
 
             <div id="petDetails"></div>
@@ -80,25 +80,25 @@ document.getElementById('addPetButton').addEventListener('click', function () {
         extraFields.innerHTML = '';
         if (this.value === 'Cachorro') {
             extraFields.innerHTML = `
-                <label for="raca${petIndex}">Raça:</label>
+                <label for="raca${petIndex}">Raça</label>
                 <input type="text" name="raca${petIndex}" id="raca${petIndex}"><br><br>
-                <label for="porte${petIndex}">Porte:</label>
+                <label for="porte${petIndex}">Porte</label>
                 <input type="text" name="porte${petIndex}" id="porte${petIndex}"><br><br>
-                <label for="temp${petIndex}">Temperamento:</label>
+                <label for="temp${petIndex}">Temperamento</label>
                 <input type="text" name="temp${petIndex}" id="temp${petIndex}"><br><br>
             `;
         } else if (this.value === 'Gato') {
             extraFields.innerHTML = `
-                <label for="tipo${petIndex}">Tipo:</label>
+                <label for="tipo${petIndex}">Tipo</label>
                 <input type="text" name="tipo${petIndex}" id="tipo${petIndex}"><br><br>
-                <label for="temp${petIndex}">Temperamento:</label>
+                <label for="temp${petIndex}">Temperamento</label>
                 <input type="text" name="temp${petIndex}" id="temp${petIndex}"><br><br>
             `;
         } else if (this.value === 'Coelho') {
             extraFields.innerHTML = `
-                <label for="especie${petIndex}">Espécie:</label>
+                <label for="especie${petIndex}">Espécie</label>
                 <input type="text" name="especie${petIndex}" id="especie${petIndex}"><br><br>
-                <label for="cor${petIndex}">Cor:</label>
+                <label for="cor${petIndex}">Cor</label>
                 <input type="text" name="cor${petIndex}" id="cor${petIndex}"><br><br>
             `;
         }
